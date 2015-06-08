@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/lib.do</url>
+        <description>record polyu library book history</description>
+        <!-- it's equivalent to HK 23:40 -->
+        <schedule>every day 15:40</schedule>
+    </cron>
+
+    <cron>
+        <url>/lib.do</url>
+        <description>record polyu library book history</description>
+        <!-- it's equivalent to HK 23:41 -->
+        <schedule>every day 15:42</schedule>
+    </cron>
+
+    <cron>
+        <url>/taskscount.do</url>
+        <description>record google tasks total and completed count</description>
+        <!-- it's equivalent to HK 01:10 -->
+        <schedule>every day 17:10</schedule>
+    </cron>
+
+    <cron>
+        <url>/checkincount.do</url>
+        <description>record google code check in count</description>
+        <!-- it's equivalent to HK 01:15 -->
+        <schedule>every day 17:15</schedule>
+    </cron>
+
+    <cron>
+        <url>/jobsdbjobcount.do</url>
+        <description>record jobsdb job count</description>
+        <!-- it's equivalent to HK 06:00 -->
+        <schedule>every day 22:00</schedule>
+    </cron>
+
+    <cron>
+        <url>/backup2blogspot.do</url>
+        <description>archive twitter to blogger daily</description>
+        <!-- it's equivalent to HK 07:00 -->
+        <schedule>every day 23:00</schedule>
+    </cron>
+
+</cronentries>

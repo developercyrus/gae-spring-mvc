@@ -1,0 +1,48 @@
+body,select {
+	font-family: Arial;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+span,label {
+	font-family: Arial;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+input {
+	font-family: Arial;
+	font-size: 12px;
+	border: 1px solid #AAAAAA;
+	vertical-align: middle;
+	text-align: right;
+	width: 25px
+}
+
+button {
+	font-family: Arial;
+	font-size: 12px;
+	border: 1px solid #AAAAAA;
+	height: 24px;
+	margin-right: 4px;
+	background-color: #EEEEEE;
+	text-align: center;
+	vertical-align: middle;
+}
+
+select {
+	border: 1px solid #AAAAAA;
+	vertical-align: middle;
+}
+
+div.control {
+	display: none;
+}
+
+a.constraint-link {
+	text-decoration: none;
+}
+
+div.example {
+	display: none;
+}

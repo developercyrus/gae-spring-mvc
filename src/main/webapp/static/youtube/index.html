@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Youtube with Caption for Discovery Channel</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function timeFromSecond (seconds){
+                var t = parseInt(seconds, 10);
+                var h = Math.floor(t / 3600);
+                t %= 3600;
+                var m = Math.floor(t / 60);
+                var s = Math.floor(t % 60);
+                if (s < 10 ) {s= '0' + s};
+                return  (h > 0 ? h + ':' : '') +
+                        (m > 0 ? m + ':' : '0:') +
+                        s;
+        }
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#spinner').hide();
+            
+            $('#spinner').ajaxStart(function() {
+                $(this).show();
+            });
+            
+            $('#spinner').ajaxStop(function() {
+                $(this).hide();        
+            });
+ 
+            $.ajax({ 
+                type: "GET",
+                dataType: "json",
+                url: "http://gdata.youtube.com/feeds/api/videos?q=discovery+channel&orderby=published&start-index=2&max-results=10&v=2&prettyprint=true&lr=en&alt=json&callback=?&caption",
+                success: function(data){
+                    var thumbnail;
+                    var url;
+                    var duration;
+                    $.each(data.feed.entry, function(i, item) {
+                        thumbnail = item['media$group']['media$thumbnail'][0]['url'];
+                        url = item['media$group']['media$player']['url'];
+                        duration = item['media$group']['yt$duration']['seconds'];
+                        
+                        $("#result").append(
+                            $("<div>").append(
+                                $("<span>").attr("class", "video-thumb").append(
+                                    $("<a>").attr("href", url).append(
+                                        $("<img>").attr("src", thumbnail).css("border-style", "none")
+                                    )
+                                ).append(
+                                    $("<span>").attr("class", "video-time").text(timeFromSecond(duration))
+                                )   
+                            )
+                        );
+                        
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    alert(textStatus);
+                    alert(XMLHttpRequest.responseText);
+                    alert(errorThrown);
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        .video-time {
+            -moz-border-radius: 3px 3px 3px 3px;
+            background-color: #000000;
+            color: #FFFFFF !important;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: bold;
+            height: 14px;
+            line-height: 14px;
+            opacity: 0.75;
+            padding: 0 4px;
+            vertical-align: top;
+        }
+        .video-time {
+            bottom: 5px;
+            margin-right: 0;
+            margin-top: 0;
+            position: absolute;
+            right: 5px;
+        }
+        .video-thumb  {
+            -moz-border-radius: 3px 3px 3px 3px;
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #D3D3D3;
+            display: inline-block;
+            overflow: hidden;
+            padding: 4px;
+            
+            vertical-align: bottom;
+            background-color: white;
+            position: relative;
+            height: 90px;
+        }
+    </style>
+</head>
+<body>        
+    <img id="spinner" style="display:none" src='ajax-loader.gif' />
+    <div id="result">
+</body>
+</html>

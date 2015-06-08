@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+
+/**
+* How To Clear Floats Without Structural Markup
+* http://www.positioniseverything.net/easyclearing.html
+*/
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	/* NEW! See http://drupal.org/node/281106#comment-1345134 */
+}
+
+/* IE Mac/Win fixes below */
+.clearfix {
+	display: inline-block; /* For IE/Mac */
+}
+
+/* Start hide from IE/Mac */
+* html .clearfix {
+	height: 1%;
+}
+
+.clearfix {
+	display: block;
+}
+/* End hide from IE/Mac */
