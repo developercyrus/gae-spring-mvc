@@ -9,7 +9,7 @@
         1.  Windows 7 64 bit (assume OS installed in C:\Windows)
         2.  Eclipse 4.4
         3.  JDK 8.0
-        4.  sql server 2012   //not portable
+
     
                   
         1. run "mvn appengine:devserver", to run on the local server       
