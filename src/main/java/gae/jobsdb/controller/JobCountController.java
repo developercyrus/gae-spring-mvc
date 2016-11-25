@@ -22,7 +22,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.tmatesoft.svn.core.SVNException;
 
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
@@ -42,7 +41,7 @@ public class JobCountController {
     private String password;
     
     @RequestMapping(value = "/jobsdbjobcount", method = RequestMethod.GET)
-    public ModelAndView anyMethodName_2() throws ClientProtocolException, IOException, ServiceException, SVNException {        
+    public ModelAndView anyMethodName_2() throws ClientProtocolException, IOException, ServiceException {        
         StringBuffer sb = new StringBuffer(); 
         String url = "http://www.jobsdb.com/HK/";
         

@@ -22,7 +22,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.tmatesoft.svn.core.SVNException;
 
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
@@ -43,7 +42,7 @@ public class CheckInCountController {
     private String password;
     
     @RequestMapping(value = "/checkincount", method = RequestMethod.GET)
-    public ModelAndView anyMethodName_2() throws ClientProtocolException, IOException, ServiceException, SVNException {
+    public ModelAndView anyMethodName_2() throws ClientProtocolException, IOException, ServiceException {
         String[] urls = {
                             "http://code.google.com/p/app-snippets/source/list"
                             , "http://code.google.com/p/nexus-snippets/source/list"
